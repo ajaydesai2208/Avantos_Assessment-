@@ -1,0 +1,149 @@
+:root {
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    color: #111;
+    background: #f6f7fb;
+  }
+  
+  * { box-sizing: border-box; }
+  
+  .page { max-width: 1100px; margin: 0 auto; padding: 18px; }
+  .header { margin-bottom: 14px; }
+  .h1 { margin: 0; font-size: 22px; }
+  .main { min-height: 70vh; }
+  .footer { margin-top: 18px; }
+  
+  .layout { display: grid; grid-template-columns: 320px 1fr; gap: 12px; }
+  .left, .right { min-width: 0; }
+  
+  .panel {
+    background: #fff;
+    border: 1px solid #e6e7ee;
+    border-radius: 10px;
+    padding: 12px;
+  }
+  
+  .panelTitle { font-weight: 700; margin-bottom: 2px; }
+  .subtle { color: #666; font-size: 13px; }
+  .bold { font-weight: 700; }
+  .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+  .hint { margin-top: 10px; padding: 10px; background: #f3f4ff; border: 1px solid #dfe2ff; border-radius: 8px; font-size: 13px; }
+  
+  .row { display: flex; align-items: center; gap: 10px; }
+  .spaceBetween { justify-content: space-between; width: 100%; }
+  .rightAlign { justify-content: flex-end; width: 100%; }
+  
+  .divider { height: 1px; background: #eee; margin: 10px 0; }
+  
+  .list { display: flex; flex-direction: column; gap: 8px; }
+  .listItem {
+    width: 100%;
+    text-align: left;
+    border: 1px solid #ececf3;
+    border-radius: 10px;
+    padding: 10px;
+    background: #fff;
+    cursor: pointer;
+  }
+  .listItem.active { border-color: #6b6cff; box-shadow: 0 0 0 2px rgba(107,108,255,0.12); }
+  .pill { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: #f0f1ff; }
+  
+  .stack { display: flex; flex-direction: column; gap: 10px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .ul { margin: 8px 0 0; padding-left: 18px; }
+  
+  .btn {
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .btn.secondary { background: #f8f8fb; }
+  
+  .iconBtn {
+    border: 1px solid #eee;
+    background: #fff;
+    border-radius: 8px;
+    padding: 6px 8px;
+    cursor: pointer;
+  }
+  
+  .prefillRow {
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #eee;
+  }
+  .prefillRow.empty {
+    border-style: dashed;
+    background: #fbfbff;
+    cursor: pointer;
+  }
+  .prefillRow.filled {
+    background: #f7f7fb;
+  }
+  
+  .disabled { opacity: 0.6; pointer-events: none; }
+  
+  .toggle { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
+  .toggle input { display: none; }
+  .toggleUi {
+    width: 40px; height: 22px;
+    background: #cfd2e5;
+    border-radius: 999px;
+    position: relative;
+  }
+  .toggleUi::after {
+    content: "";
+    width: 18px; height: 18px;
+    background: #fff;
+    border-radius: 999px;
+    position: absolute;
+    top: 2px; left: 2px;
+    transition: left 0.15s ease;
+  }
+  .toggle input:checked + .toggleUi { background: #6b6cff; }
+  .toggle input:checked + .toggleUi::after { left: 20px; }
+  
+  .modalOverlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.25);
+    display: flex; align-items: center; justify-content: center;
+    padding: 18px;
+  }
+  .modal {
+    width: min(900px, 95vw);
+    max-height: 85vh;
+    overflow: auto;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    padding: 14px;
+  }
+  .modalTitle { font-weight: 800; font-size: 18px; }
+  
+  .input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e6e7ee;
+    border-radius: 10px;
+  }
+  
+  .treeWrap { margin-top: 10px; border: 1px solid #eee; border-radius: 10px; padding: 8px; }
+  .treeNode { display: flex; align-items: center; gap: 6px; padding: 6px 0; }
+  .treeNode.selectable .treeLabel { font-weight: 600; }
+  .treeBtn {
+    width: 26px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+  .treeSpacer { display: inline-block; width: 26px; }
+  .treeLabel {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+  }
+  .code { background: #0b1020; color: #d4d8ff; padding: 10px; border-radius: 10px; overflow: auto; }
+  .error { border-color: #ffcdcd; background: #fff5f5; }
+  
