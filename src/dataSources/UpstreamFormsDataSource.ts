@@ -4,9 +4,9 @@ import { getDirectParents, getTransitiveParents } from "../utils/graphTraversal"
 export const UpstreamFormsDataSource: DataSource = {
   id: "upstreamForms",
   label: "Upstream Form Fields",
-  buildTree: ({ graph, targetFormId }) => {
-    const direct = getDirectParents(graph, targetFormId);
-    const transitive = getTransitiveParents(graph, targetFormId);
+  buildTree: ({ graph, targetFormID }) => {
+    const direct = getDirectParents(graph, targetFormID);
+    const transitive = getTransitiveParents(graph, targetFormID);
 
     const toFormNode = (form: any): DataTreeNode => ({
       id: `form:${form.id}`,

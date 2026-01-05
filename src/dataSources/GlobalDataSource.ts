@@ -3,7 +3,7 @@ import type { DataSource } from "./DataSource";
 export const GlobalDataSource: DataSource = {
   id: "global",
   label: "Global Data",
-  buildTree: () => {
+  buildTree: (_ctx) => {
     return {
       id: "globalRoot",
       label: "Global Data",

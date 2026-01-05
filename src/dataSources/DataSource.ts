@@ -18,5 +18,5 @@ export type DataSourceContext = {
 export type DataSource = {
     id: string;
     label: string;
-    buildTree: (ctx: DataSourceContext) => DataSource;
+    buildTree: (ctx: DataSourceContext) => DataTreeNode;
 };

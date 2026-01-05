@@ -74,3 +74,31 @@ No UI changes required.
 ```bash
 npm run test:run
 ```
+
+## URL Parameter Filtering
+
+You can control which data sources are visible in the "Click to map" modal using a URL query parameter. This allows testing or embedding the editor in contexts where only specific data sources should be available.
+
+**Usage:**
+
+Append `?filter=<source1>,<source2>` to the URL.
+
+**Supported Values:**
+- `direct` - Shows only direct dependencies from upstream forms.
+- `transitive` - Shows only transitive dependencies.
+- `global` - Shows only global data sources.
+
+**Examples:**
+
+- `http://localhost:5173/?filter=direct` (Only direct dependencies)
+- `http://localhost:5173/?filter=global` (Only global data)
+- `http://localhost:5173/?filter=direct,transitive` (Both direct and transitive)
+
+**Default Behavior:**
+If no `filter` parameter is provided, **all** data sources are shown.
+
+### Implementation Details
+
+1.  **URL Parsing**: The application parses the `window.location.search` string in `PrefillPanel.tsx` component.
+2.  **Prop Passing**: The parsed filter list is passed as a `dataSourceFilter` prop to the `MappingModal` component.
+3.  **Filtering Logic**: Inside `MappingModal`, the data tree is built normally, but then pruned to include only the requested groups (e.g., `directDeps`, `transitiveDeps`) based on the filter.

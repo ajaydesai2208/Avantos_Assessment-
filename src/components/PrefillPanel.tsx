@@ -38,6 +38,19 @@ export function PrefillPanel({ graph, form }: { graph: Graph; form: FormNode }) 
         </div>
       )}
 
+      {(() => {
+        const sp = new URLSearchParams(window.location.search);
+        const filter = sp.get("filter");
+        if (filter) {
+          return (
+            <div className="hint" style={{ marginTop: 8, color: "var(--primary)" }}>
+              Active Data Source Filter: <strong>{filter}</strong>
+            </div>
+          );
+        }
+        return null;
+      })()}
+
       <div className={`stack ${!enabled ? "disabled" : ""}`}>
         {fields.map((field) => {
           const ref = mappings[field.id] ?? null;
@@ -85,6 +98,12 @@ export function PrefillPanel({ graph, form }: { graph: Graph; form: FormNode }) 
         targetForm={form}
         onClose={() => setModalFieldId(null)}
         fieldId={modalFieldId}
+        dataSourceFilter={useMemo(() => {
+          const sp = new URLSearchParams(window.location.search);
+          const raw = sp.get("filter") ?? "";
+          if (!raw) return [];
+          return raw.split(",").map((s) => s.trim().toLowerCase()) as ("direct" | "transitive" | "global")[];
+        }, [])}
       />
     </div>
   );
